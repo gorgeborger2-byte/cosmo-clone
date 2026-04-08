@@ -1,7 +1,52 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Status - Cosmo Rebuild</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css"></head>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Status - Cosmo Rebuild</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css?v=cosmic-v6">
+</head>
 <body>
-<header><div class="container top"><a class="brand" href="/cosmo-clone/">Cosmo Rebuild</a><nav class="nav"><a href="/cosmo-clone/store/">Store</a><a href="/cosmo-clone/status/">Status</a><a href="/cosmo-clone/supportsys/">Support</a><a href="/cosmo-clone/forums/">Forums</a></nav><div class="pill">Live status</div></div></header>
-<main class="container"><section class="section"><h2>System status</h2><p>Operational overview across major game segments and utility services.</p><table class="table"><thead><tr><th>Service</th><th>Status</th><th>Latency</th></tr></thead><tbody><tr><td>Rust Segment</td><td class="ok">Operational</td><td>82ms</td></tr><tr><td>Fortnite Segment</td><td class="ok">Operational</td><td>76ms</td></tr><tr><td>Valorant Segment</td><td class="ok">Operational</td><td>71ms</td></tr><tr><td>Counter-Strike 2 Segment</td><td class="ok">Operational</td><td>74ms</td></tr><tr><td>Call of Duty Segment</td><td class="ok">Operational</td><td>79ms</td></tr><tr><td>HWID Utility Services</td><td class="warn">Maintenance</td><td>n/a</td></tr></tbody></table></section></main>
-<footer><div class="container">Path: /status/</div></footer>
-</body></html>
+  <header><div class="container top"><a class="brand" href="/cosmo-clone/">Cosmo Rebuild</a><nav class="nav"><a href="/cosmo-clone/store/">Store</a><a href="/cosmo-clone/status/">Status</a><a href="/cosmo-clone/supportsys/">Support</a><a href="/cosmo-clone/forums/">Forums</a></nav><div class="pill">Live status</div></div></header>
+
+  <main class="container">
+    <section class="page-hero reveal">
+      <span class="sub-eyebrow">Operational Command</span>
+      <h1>Real-time service status and maintenance visibility.</h1>
+      <p>Monitor segment health, maintenance windows, and support response conditions at a glance.</p>
+    </section>
+
+    <section class="section reveal">
+      <h2>Service Board</h2>
+      <p>Current state across major segments.</p>
+      <table class="table">
+        <thead><tr><th>Service</th><th>Status</th><th>Latency</th><th>Window</th></tr></thead>
+        <tbody>
+          <tr><td>Rust Segment</td><td><span class="status-pill good">Operational</span></td><td>82ms</td><td>Stable</td></tr>
+          <tr><td>Fortnite Segment</td><td><span class="status-pill good">Operational</span></td><td>76ms</td><td>Stable</td></tr>
+          <tr><td>Valorant Segment</td><td><span class="status-pill good">Operational</span></td><td>71ms</td><td>Stable</td></tr>
+          <tr><td>Counter-Strike 2</td><td><span class="status-pill good">Operational</span></td><td>74ms</td><td>Stable</td></tr>
+          <tr><td>Call of Duty</td><td><span class="status-pill good">Operational</span></td><td>79ms</td><td>Stable</td></tr>
+          <tr><td>HWID Utilities</td><td><span class="status-pill maintenance">Maintenance</span></td><td>n/a</td><td>ETA 2h</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section reveal">
+      <h2>Incidents and Notices</h2>
+      <div class="info-grid">
+        <article class="info-card"><h3>Scheduled Work</h3><p>HWID utility maintenance is in progress with staged rollout checks.</p></article>
+        <article class="info-card"><h3>Patch Windows</h3><p>Game segment synchronization runs automatically through patch windows.</p></article>
+        <article class="info-card"><h3>Support Priority</h3><p>Status-related tickets receive fast-lane routing during active incidents.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container">Status center - visual build cosmic-v6.</div></footer>
+  <script src="../assets/app.js?v=cosmic-v6"></script>
+  <script>App.initVisuals();</script>
+</body>
+</html>
