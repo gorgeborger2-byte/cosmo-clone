@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/site.css?v=cosmic-v7">
+  <link rel="stylesheet" href="assets/site.css?v=cosmic-v8">
 </head>
 <body>
   <header>
@@ -25,17 +25,18 @@
   </header>
 
   <main class="container">
-    <section class="store-hero">
+    <section class="store-hero reveal">
       <div class="store-hero-copy">
         <span class="eyebrow">Cosmic Premium UI</span>
-        <h1>High-end layout with live product intelligence.</h1>
-        <p>A cinematic interface layer with depth, glass, gradients, and smooth motion. Designed to feel alive, not generic.</p>
+        <h1>A polished storefront with motion, depth, and structure.</h1>
+        <p>Rebuilt with a consistent component system: premium cards, tighter hierarchy, animated navigation, and clearer page architecture.</p>
         <div class="btn-row">
           <a class="btn primary" href="/cosmo-clone/store/">Open catalog</a>
           <a class="btn ghost" href="/cosmo-clone/status/">View status</a>
         </div>
       </div>
       <div class="store-hero-panel">
+        <img src="assets/art/galaxy-ring.svg" alt="Galaxy visual" style="width:100%;height:auto;opacity:.88;">
         <div class="hero-kpi"><strong>67</strong><span>Games in categories</span></div>
         <div class="hero-kpi"><strong>40+</strong><span>Products in dataset</span></div>
         <div class="hero-kpi"><strong>24/7</strong><span>Support coverage</span></div>
@@ -46,13 +47,23 @@
   <div class="ticker"><span>LIVE STATUS - RUST OPERATIONAL - FORTNITE OPERATIONAL - VALORANT OPERATIONAL - HWID TOOLING MAINTENANCE - SUPPORT ETA UNDER 10 MINUTES - LIVE STATUS - RUST OPERATIONAL - FORTNITE OPERATIONAL - VALORANT OPERATIONAL - HWID TOOLING MAINTENANCE - SUPPORT ETA UNDER 10 MINUTES - </span></div>
 
   <main class="container">
-    <section class="section">
+    <section class="section reveal">
+      <h2>Core capabilities</h2>
+      <p>Less filler, more useful structure.</p>
+      <div class="info-grid">
+        <article class="info-card"><img src="assets/icons/spark.svg" alt="Spark" width="20" height="20"><h3>Animated experience</h3><p>Splash intro, reveal transitions, and responsive motion layers.</p></article>
+        <article class="info-card"><img src="assets/icons/shield.svg" alt="Shield" width="20" height="20"><h3>Structured navigation</h3><p>Active menu indicator, mobile drawer, and route-aware hierarchy.</p></article>
+        <article class="info-card"><img src="assets/icons/pulse.svg" alt="Pulse" width="20" height="20"><h3>Live data flow</h3><p>Catalog refreshes every 30 seconds from the feed pipeline.</p></article>
+      </div>
+    </section>
+
+    <section class="section reveal">
       <h2>All category coverage</h2>
-      <p>Complete games list from your link tree, rendered from shared data.</p>
+      <p>Complete games list rendered from shared data.</p>
       <div class="grid" id="categoryGrid"></div>
     </section>
 
-    <section class="section">
+    <section class="section reveal">
       <h2>Recent feedback</h2>
       <p>Sample review feed from shared dataset.</p>
       <div class="grid" id="reviewGrid"></div>
@@ -60,10 +71,10 @@
   </main>
 
   <footer>
-    <div class="container">Built for GitHub Pages deployment with multi-page structure. Visual build: cosmic-v7.</div>
+    <div class="container">Built for GitHub Pages deployment with multi-page structure. Visual build: cosmic-v8.</div>
   </footer>
-  <script src="assets/data.js?v=cosmic-v7"></script>
-  <script src="assets/app.js?v=cosmic-v7"></script>
+  <script src="assets/data.js?v=cosmic-v8"></script>
+  <script src="assets/app.js?v=cosmic-v8"></script>
   <script>
     App.renderCategoryGrid("categoryGrid");
     App.renderReviews("reviewGrid");

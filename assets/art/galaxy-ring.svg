@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" fill="none">
+  <defs>
+    <radialGradient id="a" cx="0" cy="0" r="1" gradientTransform="translate(320 210) rotate(90) scale(160 240)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7CC7FF" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#7CC7FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="b" cx="0" cy="0" r="1" gradientTransform="translate(320 210) rotate(90) scale(210 300)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8A82FF" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#8A82FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="320" cy="210" rx="220" ry="74" stroke="#BFE4FF" stroke-opacity="0.8" stroke-width="2"/>
+  <ellipse cx="320" cy="210" rx="280" ry="96" stroke="#7DFFD2" stroke-opacity="0.4" stroke-width="1.5"/>
+  <circle cx="320" cy="210" r="72" fill="url(#a)"/>
+  <circle cx="320" cy="210" r="106" fill="url(#b)"/>
+</svg>

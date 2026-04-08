@@ -7,35 +7,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/site.css?v=cosmic-v7">
+  <link rel="stylesheet" href="../assets/site.css?v=cosmic-v8">
 </head>
 <body>
   <header><div class="container top"><a class="brand" href="/cosmo-clone/">Cosmo Rebuild</a><nav class="nav"><a href="/cosmo-clone/store/">Store</a><a href="/cosmo-clone/status/">Status</a><a href="/cosmo-clone/supportsys/">Support</a><a href="/cosmo-clone/forums/">Forums</a><a href="/cosmo-clone/discover/">Discover</a></nav><div class="pill">Store hub</div></div></header>
   <main class="container">
-    <section class="store-hero">
+    <section class="store-hero reveal">
       <div class="store-hero-copy">
         <span class="eyebrow">Cosmic Commerce Engine</span>
-        <h1>Not a template. A cinematic storefront.</h1>
-        <p>Fully animated catalog with deeper visual hierarchy, premium card detail, and live feed updates. Built to feel expensive and responsive on every interaction.</p>
+        <h1>A premium catalog that feels fast, clear, and alive.</h1>
+        <p>Consistent components, richer product cards, and live data sync in one focused layout.</p>
         <div class="btn-row">
           <a class="btn primary" href="#catalog">Explore catalog</a>
           <a class="btn ghost" href="/cosmo-clone/status/">Live status</a>
         </div>
       </div>
       <div class="store-hero-panel">
+        <img src="../assets/art/galaxy-ring.svg" alt="Galaxy visual" style="width:100%;height:auto;opacity:.88;">
         <div class="hero-kpi"><strong>67</strong><span>Mapped categories</span></div>
         <div class="hero-kpi"><strong>Live</strong><span id="liveStamp">Checking live feed...</span></div>
         <div class="hero-kpi"><strong>30s</strong><span>Auto refresh cycle</span></div>
       </div>
     </section>
 
-    <section class="section" id="catalog">
+    <section class="section reveal" id="catalog">
       <h2>Catalog Control Center</h2>
       <p>Search, sort, and scan every card with detailed banners and richer product context.</p>
 
       <div class="catalog-shell">
         <aside class="filters-panel">
-          <h3>Filters</h3>
+          <h3><img src="../assets/icons/pulse.svg" alt="Pulse" width="16" height="16" style="vertical-align:middle;margin-right:6px;">Filters</h3>
           <div class="controls vertical">
             <input id="search" type="search" placeholder="Search Kane, Liquid, AstroZoom...">
             <select id="sort">
@@ -46,7 +47,7 @@
             </select>
             <button class="btn ghost" id="reset" type="button">Reset filters</button>
           </div>
-          <h3>Categories</h3>
+          <h3><img src="../assets/icons/spark.svg" alt="Spark" width="16" height="16" style="vertical-align:middle;margin-right:6px;">Categories</h3>
           <div class="chips chips-vertical" id="chips"></div>
         </aside>
 
@@ -56,10 +57,10 @@
       </div>
     </section>
   </main>
-  <footer><div class="container">Rendered from shared data files for easy updates. Visual build: cosmic-v7.</div></footer>
+  <footer><div class="container">Rendered from shared data files for easy updates. Visual build: cosmic-v8.</div></footer>
 
-  <script src="../assets/data.js?v=cosmic-v7"></script>
-  <script src="../assets/app.js?v=cosmic-v7"></script>
+  <script src="../assets/data.js?v=cosmic-v8"></script>
+  <script src="../assets/app.js?v=cosmic-v8"></script>
   <script>
     function renderCatalog() {
       App.renderProductsGrid("productGrid", {
