@@ -10,11 +10,12 @@
   <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
-  <header><div class="container top"><a class="brand" href="/">Cosmo Rebuild</a><nav class="nav"><a href="/store/">Store</a><a href="/status/">Status</a><a href="/supportsys/">Support</a><a href="/forums/">Forums</a><a href="/discover/">Discover</a></nav><div class="pill">Store hub</div></div></header>
+  <header><div class="container top"><a class="brand" href="/cosmo-clone/">Cosmo Rebuild</a><nav class="nav"><a href="/cosmo-clone/store/">Store</a><a href="/cosmo-clone/status/">Status</a><a href="/cosmo-clone/supportsys/">Support</a><a href="/cosmo-clone/forums/">Forums</a><a href="/cosmo-clone/discover/">Discover</a></nav><div class="pill">Store hub</div></div></header>
   <main class="container">
     <section class="section">
       <h2>Catalog</h2>
       <p>All products and games in one searchable view.</p>
+      <p id="liveStamp">Checking live feed...</p>
 
       <div class="controls">
         <input id="search" type="search" placeholder="Search product or game (Kane, Liquid, AstroZoom...)">
@@ -36,12 +37,17 @@
   <script src="../assets/data.js"></script>
   <script src="../assets/app.js"></script>
   <script>
-    App.renderProductsGrid("productGrid", {
-      chipsId: "chips",
-      searchId: "search",
-      sortId: "sort",
-      resetId: "reset"
-    });
+    function renderCatalog() {
+      App.renderProductsGrid("productGrid", {
+        chipsId: "chips",
+        searchId: "search",
+        sortId: "sort",
+        resetId: "reset"
+      });
+    }
+
+    renderCatalog();
+    App.enableLiveData(renderCatalog);
   </script>
 </body>
 </html>

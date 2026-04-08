@@ -1,4 +1,6 @@
 (function () {
+  const LIVE_URL = "/cosmo-clone/assets/live-data.json";
+
   function el(id) {
     return document.getElementById(id);
   }
@@ -107,6 +109,14 @@
     }
 
     draw();
+
+    return {
+      redraw: draw,
+      setCategory: function (value) {
+        category = value;
+        draw();
+      }
+    };
   }
 
   function renderCategoryGrid(targetId) {
@@ -129,9 +139,42 @@
       .join("");
   }
 
+  async function loadLiveData() {
+    try {
+      const res = await fetch(LIVE_URL + "?t=" + Date.now(), { cache: "no-store" });
+      if (!res.ok) return false;
+      const json = await res.json();
+      if (!json || !json.products || !json.categories || !json.reviews) return false;
+      window.siteData = json;
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function updateLiveStamp(ok) {
+    const stamp = el("liveStamp");
+    if (!stamp) return;
+    const time = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    stamp.textContent = ok ? "Live feed synced at " + time : "Using local dataset";
+  }
+
+  async function enableLiveData(onRefresh) {
+    const ok = await loadLiveData();
+    updateLiveStamp(ok);
+    if (typeof onRefresh === "function") onRefresh();
+
+    setInterval(async function () {
+      const updated = await loadLiveData();
+      updateLiveStamp(updated);
+      if (updated && typeof onRefresh === "function") onRefresh();
+    }, 30000);
+  }
+
   window.App = {
     renderProductsGrid: renderProductsGrid,
     renderCategoryGrid: renderCategoryGrid,
-    renderReviews: renderReviews
+    renderReviews: renderReviews,
+    enableLiveData: enableLiveData
   };
 })();
