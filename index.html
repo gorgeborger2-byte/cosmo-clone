@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmo Cheats | Elite Game Hacks & Cheats</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a12 0%, #1a1a2e 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+        .navbar {
+            background: rgba(15, 15, 25, 0.95);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #00d4ff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00d4ff;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #00d4ff;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: radial-gradient(ellipse at center, #1a1a3e 0%, #0a0a12 100%);
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00d4ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 20px;
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 36px;
+            color: #00d4ff;
+            font-weight: bold;
+        }
+        .stat-label {
+            color: #888;
+            font-size: 14px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #00d4ff;
+        }
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        .game-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+            box-shadow: 0 10px 30px rgba(0,212,255,0.2);
+        }
+        .game-card img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .game-card h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .product-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+        .product-card:hover {
+            border-color: #00d4ff;
+            transform: translateY(-5px);
+        }
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .product-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .status.undetected {
+            background: rgba(0,255,136,0.2);
+            color: #00ff88;
+        }
+        .status.updating {
+            background: rgba(255,193,7,0.2);
+            color: #ffc107;
+        }
+        .price {
+            font-size: 24px;
+            color: #00d4ff;
+            font-weight: bold;
+        }
+        .price span {
+            font-size: 14px;
+            color: #888;
+        }
+        .buy-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #00d4ff, #00ff88);
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: transform 0.3s;
+        }
+        .buy-btn:hover {
+            transform: scale(1.05);
+        }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .review-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 25px;
+        }
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00d4ff, #00ff88);
+        }
+        .review-user {
+            font-weight: bold;
+        }
+        .review-date {
+            color: #888;
+            font-size: 12px;
+        }
+        .review-content {
+            color: #ccc;
+            line-height: 1.6;
+        }
+        .stars {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+        .footer {
+            background: rgba(15,15,25,0.95);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 60px;
+        }
+        .online-count {
+            background: #00ff88;
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+        .tab {
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .tab.active {
+            background: #00d4ff;
+            border-color: #00d4ff;
+            color: #000;
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">Cosmo Cheats</a>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" onclick="showPage('store')">Store</a></li>
+            <li><a href="#" onclick="showPage('products')">Products</a></li>
+            <li><a href="#" onclick="showPage('reviews')">Reviews</a></li>
+        </ul>
+        <span class="online-count">342 Online</span>
+    </nav>
+
+    <div id="home" class="page">
+        <section class="hero">
+            <h1>Undetected Cheats with 24/7 Support</h1>
+            <p>300,000+ Successful Orders | 5/5 from 4,000+ Reviews</p>
+            <a href="#" onclick="showPage('store')" class="buy-btn">Browse Store</a>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">300K+</div>
+                    <div class="stat-label">Orders</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">4,500+</div>
+                    <div class="stat-label">5-Star Reviews</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">67</div>
+                    <div class="stat-label">Games</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <h2 class="section-title">Supported Games</h2>
+            <div class="games-grid" id="gamesGrid"></div>
+        </div>
+    </div>
+
+    <div id="store" class="page hidden">
+        <div class="container">
+            <h2 class="section-title">Store Products - 67 Games</h2>
+            <div class="games-grid" id="storeGamesGrid"></div>
+        </div>
+    </div>
+
+    <div id="products" class="page hidden">
+        <div class="container">
+            <h2 class="section-title">Rust Products</h2>
+            <div class="tabs">
+                <button class="tab active" onclick="filterProducts('rust')">Rust</button>
+                <button class="tab" onclick="filterProducts('valorant')">Valorant</button>
+                <button class="tab" onclick="filterProducts('fortnite')">Fortnite</button>
+                <button class="tab" onclick="filterProducts('apex')">Apex Legends</button>
+                <button class="tab" onclick="filterProducts('cod')">Call of Duty</button>
+            </div>
+            <div class="products-grid" id="productsGrid"></div>
+        </div>
+    </div>
+
+    <div id="reviews" class="page hidden">
+        <div class="container">
+            <h2 class="section-title">Customer Reviews</h2>
+            <div class="reviews-grid" id="reviewsGrid"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Cosmo Software. Demo for portfolio purposes.</p>
+    </footer>
+
+    <script>
+        const games = [
+            { name: 'Rust', image: 'https://cosmocheats.com/uploads/monthly_2025_10/rust.webp' },
+            { name: 'Fortnite', image: 'https://cosmocheats.com/uploads/monthly_2025_10/forntitenew.webp' },
+            { name: 'Valorant', image: 'https://cosmocheats.com/uploads/monthly_2025/Valorantnew.webp' },
+            { name: 'Counter-Strike 2', image: 'https://cosmocheats.com/uploads/monthly_2025_10/CounterStrike2.webp' },
+            { name: 'Apex Legends', image: 'https://cosmocheats.com/uploads/monthly_2025_10/Apex.webp' },
+            { name: 'Call of Duty', image: 'https://cosmocheats.com/uploads/monthly_2025_10/CallofDuty3.webp' },
+            { name: 'Escape From Tarkov', image: 'https://cosmocheats.com/uploads/monthly_2025_10/ETF.webp' },
+            { name: 'Rainbow Six Siege', image: 'https://cosmocheats.com/uploads/monthly_2025_10/RainbowSixSiege.webp' },
+            { name: 'PUBG', image: 'https://cosmocheats.com/uploads/monthly_2025_10/PUBG.webp' },
+            { name: 'DayZ', image: 'https://cosmocheats.com/uploads/monthly_2025_10/DayZ.webp' },
+            { name: 'Dead by Daylight', image: 'https://cosmocheats.com/uploads/monthly_2025_10/DeadbyDaylight.webp' },
+            { name: 'War Thunder', image: 'https://cosmocheats.com/uploads/monthly_2025_10/war_thunder.webp' },
+            { name: 'The Finals', image: 'https://cosmocheats.com/uploads/monthly_2025_10/TheFinals.webp' },
+            { name: 'Delta Force', image: 'https://cosmocheats.com/uploads/monthly_2025_10/DeltaForce.webp' },
+            { name: 'Marvel Rivals', image: 'https://cosmocheats.com/uploads/monthly_2025_10/marvelrivalgameimage.webp' },
+            { name: 'Rocket League', image: 'https://cosmocheats.com/uploads/monthly_2025_10/RocketLeague6.webp' },
+            { name: 'FiveM', image: 'https://cosmocheats.com/uploads/monthly_2025_02/FIVEM.webp' },
+            { name: 'Roblox', image: 'https://cosmocheats.com/uploads/monthly_2025_10/Roblox.webp' },
+            { name: 'Overwatch 2', image: 'https://cosmocheats.com/uploads/monthly_2024_12/overawatchnew.webp' },
+            { name: 'Palworld', image: 'https://cosmocheats.com/uploads/monthly_2024_12/Palworld.webp' },
+        ];
+
+        const products = [
+            { name: 'Liquid Rust', game: 'rust', status: 'undetected', price: 6.00, image: 'https://cosmocheats.com/uploads/monthly_2025_11/Liquid.webp' },
+            { name: 'Supreme Rust', game: 'rust', status: 'undetected', price: 8.00, image: 'https://cosmocheats.com/uploads/monthly_2025_10/Supreme.webp' },
+            { name: 'Kane Rust', game: 'rust', status: 'undetected', price: 6.00, image: 'https://cosmocheats.com/uploads/monthly_2025_10/Kane.webp' },
+            { name: 'Cosmo Rust', game: 'rust', status: 'undetected', price: 18.00, image: 'https://cosmocheats.com/uploads/monthly_2025_11/Cosmo.webp' },
+            { name: 'ATLAS Rust', game: 'rust', status: 'undetected', price: 6.00, image: 'https://cosmocheats.com/uploads/monthly_2025_10/Atlas.webp' },
+            { name: 'Cobra Rust', game: 'rust', status: 'undetected', price: 13.00, image: 'https://cosmocheats.com/uploads/monthly_2025_10/Cobra.webp' },
+            { name: 'Volt Rust Full', game: 'rust', status: 'undetected', price: 8.00, image: 'https://cosmocheats.com/uploads/monthly_2025_10/VoltFull.webp' },
+            { name: 'Viper Rust', game: 'rust', status: 'undetected', price: 5.00, image: 'https://cosmocheats.com/uploads/monthly_2026_01/Viper.png' },
+            { name: 'Vortex Rust', game: 'rust', status: 'undetected', price: 7.00, image: 'https://cosmocheats.com/uploads/monthly_2026_03/Vortex1.webp' },
+            { name: 'Kraken Rust', game: 'rust', status: 'undetected', price: 12.00, image: 'https://cosmocheats.com/uploads/monthly_2025_12/KrakenExternal.webp' },
+            { name: 'Hero Rust', game: 'rust', status: 'updating', price: 8.00, image: 'https://cosmocheats.com/uploads/monthly_2025_11/HeroInternal.webp' },
+            { name: 'Forge Rust', game: 'rust', status: 'updating', price: 8.00, image: 'https://cosmocheats.com/uploads/monthly_2025_10/Forge.png' },
+        ];
+
+        const reviews = [
+            { user: 'Vendo Nevera', date: '10 hours ago', content: 'Support fixed my issue in less than 10 mins', stars: '★★★★★' },
+            { user: '8cp.', date: 'Monday', content: 'best supporters out there, they helped a lot with my problem', stars: '★★★★★' },
+            { user: 'Noblog', date: 'Saturday', content: 'Reliable and undetected cheats, I\'m highly impressed', stars: '★★★★★' },
+            { user: 'WillyPushinP', date: 'Friday', content: 'Support is an absolute beast 10/10', stars: '★★★★★' },
+            { user: 'Neusence', date: 'April 1', content: '5/5 Spoofer works flawlessly with claner', stars: '★★★★★' },
+            { user: 'Mallone', date: 'March 30', content: 'They fixed my problem in less than 5 minutes', stars: '★★★★★' },
+            { user: 'Johnathan doeyle', date: 'March 29', content: 'Instant response from support 10/10', stars: '★★★★★' },
+            { user: 'Bresko', date: 'March 28', content: 'Great Support and Fast Help', stars: '★★★★★' },
+            { user: 'yReqw', date: 'March 27', content: 'Most perfect support!', stars: '★★★★★' },
+            { user: 'Customs', date: 'March 27', content: 'Best paid wt cheat by far i used', stars: '★★★★★' },
+        ];
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+
+        function renderGames(gridId) {
+            const grid = document.getElementById(gridId);
+            grid.innerHTML = games.map(game => `
+                <div class="game-card">
+                    <img src="${game.image}" alt="${game.name}" onerror="this.src='https://via.placeholder.com/80?text=${game.name}'">
+                    <h3>${game.name}</h3>
+                </div>
+            `).join('');
+        }
+
+        function renderProducts(filter = 'rust') {
+            const grid = document.getElementById('productsGrid');
+            const filtered = products.filter(p => p.game === filter);
+            grid.innerHTML = filtered.map(product => `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/280x150?text=${product.name}'">
+                    <span class="status ${product.status}">${product.status.toUpperCase()}</span>
+                    <h3>${product.name}</h3>
+                    <div class="price">from ${product.price.toFixed(2)} <span>USD</span></div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            `).join('');
+        }
+
+        function renderReviews() {
+            const grid = document.getElementById('reviewsGrid');
+            grid.innerHTML = reviews.map(review => `
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar"></div>
+                        <div>
+                            <div class="review-user">${review.user}</div>
+                            <div class="review-date">${review.date}</div>
+                        </div>
+                    </div>
+                    <div class="stars">${review.stars}</div>
+                    <p class="review-content">${review.content}</p>
+                </div>
+            `).join('');
+        }
+
+        function filterProducts(game) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            renderProducts(game);
+        }
+
+        renderGames('gamesGrid');
+        renderGames('storeGamesGrid');
+        renderProducts();
+        renderReviews();
+    </script>
+</body>
+</html>
