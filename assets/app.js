@@ -2,6 +2,8 @@
   const LIVE_URL = "/cosmo-clone/assets/live-data.json";
   let revealObserver;
   let motionBound = false;
+  let splashShown = false;
+  let popupShown = false;
 
   function el(id) {
     return document.getElementById(id);
@@ -280,8 +282,126 @@
   }
 
   function initVisuals() {
+    ensureSpaceScene();
+    showOpeningSplash();
+    enableFloatingPopup();
     refreshVisuals();
     enableMotion();
+  }
+
+  function ensureSpaceScene() {
+    if (document.querySelector(".space-scene")) return;
+
+    const scene = document.createElement("div");
+    scene.className = "space-scene";
+    scene.setAttribute("aria-hidden", "true");
+
+    const nebulaA = document.createElement("div");
+    nebulaA.className = "nebula nebula-a";
+    const nebulaB = document.createElement("div");
+    nebulaB.className = "nebula nebula-b";
+    const stars = document.createElement("div");
+    stars.className = "starfield";
+
+    for (let i = 0; i < 90; i += 1) {
+      const star = document.createElement("span");
+      star.className = "star";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.top = Math.random() * 100 + "%";
+      star.style.animationDelay = (Math.random() * 4).toFixed(2) + "s";
+      star.style.animationDuration = (1.4 + Math.random() * 3.4).toFixed(2) + "s";
+      star.style.opacity = String(0.3 + Math.random() * 0.7);
+      stars.appendChild(star);
+    }
+
+    scene.appendChild(nebulaA);
+    scene.appendChild(nebulaB);
+    scene.appendChild(stars);
+    document.body.appendChild(scene);
+  }
+
+  function showOpeningSplash() {
+    if (splashShown || sessionStorage.getItem("cosmoSplash") === "1") return;
+    splashShown = true;
+
+    const splash = document.createElement("div");
+    splash.className = "opening-splash";
+    splash.innerHTML =
+      '<div class="splash-core">' +
+      '<div class="splash-ring"></div>' +
+      '<div class="splash-title">COSMIC INTERFACE</div>' +
+      '<div class="splash-sub">Loading premium experience...</div>' +
+      "</div>";
+
+    document.body.appendChild(splash);
+    requestAnimationFrame(function () {
+      splash.classList.add("in");
+    });
+
+    setTimeout(function () {
+      splash.classList.add("out");
+      sessionStorage.setItem("cosmoSplash", "1");
+      setTimeout(function () {
+        splash.remove();
+      }, 750);
+    }, 1550);
+  }
+
+  function enableFloatingPopup() {
+    if (popupShown) return;
+    popupShown = true;
+
+    if (!document.querySelector(".floating-popup-btn")) {
+      const btn = document.createElement("button");
+      btn.className = "floating-popup-btn";
+      btn.type = "button";
+      btn.textContent = "Live Updates";
+      btn.addEventListener("click", openPopup);
+      document.body.appendChild(btn);
+    }
+
+    if (!document.querySelector(".popup-overlay")) {
+      const overlay = document.createElement("div");
+      overlay.className = "popup-overlay";
+      overlay.innerHTML =
+        '<div class="popup-card">' +
+        '<button class="popup-close" type="button">×</button>' +
+        '<p class="popup-kicker">System Notice</p>' +
+        '<h3>Cosmic live updates are active</h3>' +
+        '<p>Catalog data syncs every 30 seconds. Watch status windows and recent update tags inside product cards.</p>' +
+        '<div class="btn-row"><a class="btn primary" href="/cosmo-clone/store/">Open catalog</a><button class="btn ghost popup-dismiss" type="button">Got it</button></div>' +
+        "</div>";
+
+      overlay.addEventListener("click", function (e) {
+        if (e.target === overlay) closePopup();
+      });
+
+      document.body.appendChild(overlay);
+
+      const closeBtn = overlay.querySelector(".popup-close");
+      const dismissBtn = overlay.querySelector(".popup-dismiss");
+      if (closeBtn) closeBtn.addEventListener("click", closePopup);
+      if (dismissBtn) dismissBtn.addEventListener("click", closePopup);
+    }
+
+    if (sessionStorage.getItem("cosmoPopup") !== "1") {
+      setTimeout(function () {
+        openPopup();
+      }, 2400);
+    }
+  }
+
+  function openPopup() {
+    const overlay = document.querySelector(".popup-overlay");
+    if (!overlay) return;
+    overlay.classList.add("open");
+    sessionStorage.setItem("cosmoPopup", "1");
+  }
+
+  function closePopup() {
+    const overlay = document.querySelector(".popup-overlay");
+    if (!overlay) return;
+    overlay.classList.remove("open");
   }
 
   async function loadLiveData() {
