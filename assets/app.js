@@ -15,6 +15,30 @@
     return status === "Operational" ? "ok" : "warn";
   }
 
+  function gameGradient(game) {
+    const map = {
+      Rust: "linear-gradient(135deg, #ff8c42, #a43f23)",
+      Fortnite: "linear-gradient(135deg, #8a7dff, #3f2da8)",
+      Valorant: "linear-gradient(135deg, #ff5f7a, #8f1d39)",
+      "Call of Duty": "linear-gradient(135deg, #8ba0c9, #2d3c66)",
+      "Counter-Strike 2": "linear-gradient(135deg, #ffbd6b, #84511d)",
+      "Apex Legends": "linear-gradient(135deg, #ff8a6f, #7d2330)",
+      "HWID Spoofers": "linear-gradient(135deg, #6be8ff, #125e8f)"
+    };
+
+    return map[game] || "linear-gradient(135deg, #7ea7ff, #233a73)";
+  }
+
+  function productDescription(product) {
+    if (product.description) return product.description;
+    return "Fast setup flow, frequent maintenance updates, and responsive support coverage.";
+  }
+
+  function productFeatures(product) {
+    if (Array.isArray(product.features) && product.features.length) return product.features;
+    return ["Instant delivery", "Live status sync", "Priority support"];
+  }
+
   function renderCategoryChips(targetId, onChange) {
     const target = el(targetId);
     if (!target || !window.siteData) return;
@@ -78,13 +102,30 @@
 
       target.innerHTML = data
         .map(function (p) {
+          const features = productFeatures(p)
+            .slice(0, 3)
+            .map(function (feature) {
+              return '<span class="feature-pill">' + feature + "</span>";
+            })
+            .join("");
+
           return (
             '<article class="card">' +
+            '<div class="product-banner" style="background:' + gameGradient(p.game) + '">' +
+            '<div class="banner-top">' +
             '<span class="tag ' + statusClass(p.status) + '">' + p.status.toUpperCase() + "</span>" +
+            '<span class="banner-game">' + p.game + "</span>" +
+            "</div>" +
+            '<h4 class="banner-title">' + p.name + "</h4>" +
+            "</div>" +
+            '<div class="product-body">' +
             "<h3>" + p.name + "</h3>" +
+            '<p class="product-desc">' + productDescription(p) + "</p>" +
+            '<div class="product-features">' + features + "</div>" +
             '<div class="meta">' +
             '<div class="price">' + money(p.price) + ' <small>USD</small></div>' +
             '<div class="pill">' + p.game + "</div>" +
+            "</div>" +
             "</div>" +
             "</article>"
           );
@@ -129,7 +170,17 @@
     if (!target || !window.siteData) return;
     target.innerHTML = window.siteData.categories
       .map(function (c) {
-        return '<article class="card"><h3>' + c + '</h3><p>Category available in catalog.</p></article>';
+        const count = window.siteData.products.filter(function (p) {
+          return p.game === c;
+        }).length;
+
+        return (
+          '<article class="card">' +
+          '<div class="category-chip" style="background:' + gameGradient(c) + '"></div>' +
+          "<h3>" + c + "</h3>" +
+          '<p>' + (count ? count + ' products available in catalog.' : 'Category mapped in structure.') + "</p>" +
+          "</article>"
+        );
       })
       .join("");
 
@@ -141,7 +192,24 @@
     if (!target || !window.siteData) return;
     target.innerHTML = window.siteData.reviews
       .map(function (r) {
-        return '<article class="card"><span class="tag ok">★★★★★</span><h3>' + r.user + '</h3><p>' + r.text + ' - ' + r.date + '</p></article>';
+        const initials = (r.user || "U")
+          .split(" ")
+          .slice(0, 2)
+          .map(function (part) {
+            return part.charAt(0).toUpperCase();
+          })
+          .join("");
+
+        return (
+          '<article class="card review-card">' +
+          '<div class="review-head">' +
+          '<span class="avatar">' + initials + "</span>" +
+          '<div><h3>' + r.user + '</h3><p class="review-date">' + r.date + "</p></div>" +
+          "</div>" +
+          '<span class="tag ok">★★★★★</span>' +
+          '<p class="review-text">' + r.text + "</p>" +
+          "</article>"
+        );
       })
       .join("");
 
