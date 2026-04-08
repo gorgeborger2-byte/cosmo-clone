@@ -1,833 +1,702 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmo Cheats | Elite Game Hacks & Cheats</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-primary: #000000;
-            --bg-secondary: #1d1d1f;
-            --bg-tertiary: #2d2d2f;
-            --bg-card: rgba(255,255,255,0.05);
-            --text-primary: #f5f5f7;
-            --text-secondary: #86868b;
-            --text-tertiary: #6e6e73;
-            --accent: #2997ff;
-            --accent-hover: #0071e3;
-            --success: #30d158;
-            --warning: #ff9f0a;
-            --border: rgba(255,255,255,0.1);
-            --border-hover: rgba(255,255,255,0.2);
-            --glass: rgba(30,30,30,0.8);
-            --shadow: 0 4px 24px rgba(0,0,0,0.4);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            min-height: 100vh;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 48px;
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 48px;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-primary);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .online-badge {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            color: var(--success);
-            background: rgba(48,209,88,0.15);
-            padding: 4px 10px;
-            border-radius: 100px;
-        }
-
-        .online-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--success);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 180px 20px 120px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at center top, rgba(41,151,255,0.15) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 80px;
-            font-weight: 700;
-            letter-spacing: -2px;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #fff 0%, #86868b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero .tagline {
-            font-size: 24px;
-            font-weight: 400;
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 80px;
-            margin-top: 60px;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 48px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            background: linear-gradient(135deg, var(--accent) 0%, #5AC8FA 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            font-size: 13px;
-            color: var(--text-tertiary);
-            margin-top: 4px;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            border-radius: 100px;
-            font-size: 14px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: scale(1.02);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--accent);
-            border: 1px solid var(--accent);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(41,151,255,0.1);
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        .section {
-            margin-bottom: 100px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            font-size: 40px;
-            font-weight: 600;
-            letter-spacing: -1px;
-        }
-
-        .section-subtitle {
-            color: var(--text-secondary);
-            font-size: 17px;
-        }
-
-        /* Games Grid */
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 16px;
-        }
-
-        .game-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px 16px;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: pointer;
-        }
-
-        .game-card:hover {
-            background: rgba(255,255,255,0.08);
-            border-color: var(--border-hover);
-            transform: translateY(-4px);
-        }
-
-        .game-card img {
-            width: 64px;
-            height: 64px;
-            object-fit: cover;
-            border-radius: 14px;
-            margin-bottom: 16px;
-        }
-
-        .game-card h3 {
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        /* Products Grid */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .product-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 24px;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), #5AC8FA);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .product-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
-        }
-
-        .product-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 20px;
-        }
-
-        .product-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 4px 10px;
-            border-radius: 100px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 12px;
-        }
-
-        .product-status.undetected {
-            background: rgba(48,209,88,0.15);
-            color: var(--success);
-        }
-
-        .product-status.updating {
-            background: rgba(255,159,10,0.15);
-            color: var(--warning);
-        }
-
-        .product-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .product-price {
-            display: flex;
-            align-items: baseline;
-            gap: 4px;
-            margin-bottom: 16px;
-        }
-
-        .price-value {
-            font-size: 28px;
-            font-weight: 700;
-        }
-
-        .price-currency {
-            font-size: 14px;
-            color: var(--text-tertiary);
-        }
-
-        .product-btn {
-            width: 100%;
-            padding: 14px;
-            background: var(--accent);
-            color: #fff;
-            border: none;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .product-btn:hover {
-            background: var(--accent-hover);
-        }
-
-        /* Tabs */
-        .tabs {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 32px;
-            background: var(--bg-secondary);
-            padding: 4px;
-            border-radius: 12px;
-            width: fit-content;
-        }
-
-        .tab {
-            padding: 10px 20px;
-            background: transparent;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 13px;
-            font-weight: 500;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .tab:hover {
-            color: var(--text-primary);
-        }
-
-        .tab.active {
-            background: var(--bg-tertiary);
-            color: var(--text-primary);
-        }
-
-        /* Reviews */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 20px;
-        }
-
-        .review-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 24px;
-        }
-
-        .review-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .review-avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), #5AC8FA);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            font-weight: 600;
-            color: #fff;
-        }
-
-        .review-meta {
-            flex: 1;
-        }
-
-        .review-user {
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .review-date {
-            font-size: 12px;
-            color: var(--text-tertiary);
-        }
-
-        .review-stars {
-            color: #FFD60A;
-            font-size: 14px;
-            letter-spacing: 2px;
-        }
-
-        .review-text {
-            color: var(--text-secondary);
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        /* Pages */
-        .page {
-            display: none;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--bg-secondary);
-            padding: 60px 20px;
-            text-align: center;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .footer-logo span {
-            color: var(--accent);
-        }
-
-        .footer-text {
-            color: var(--text-tertiary);
-            font-size: 13px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 0 20px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 48px;
-            }
-
-            .hero .tagline {
-                font-size: 18px;
-            }
-
-            .hero-stats {
-                flex-wrap: wrap;
-                gap: 40px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .games-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-in {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cosmo Store - Precision Products</title>
+  <meta name="description" content="Premium storefront experience with ultra-fast delivery, live status, and support.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f4ef;
+      --ink: #141414;
+      --ink-soft: #4e4e4e;
+      --paper: #ffffff;
+      --line: #d8d4ca;
+      --brand: #0f5d57;
+      --brand-2: #d98f00;
+      --ok: #0b7a55;
+      --warn: #b86d00;
+      --radius: 18px;
+      --shadow: 0 20px 40px rgba(16, 16, 16, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at 10% 0%, #fff6db 0, transparent 35%),
+                  radial-gradient(circle at 90% 10%, #dbf0ff 0, transparent 40%),
+                  var(--bg);
+    }
+
+    .container {
+      width: min(1200px, 92vw);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(245, 244, 239, 0.75);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 12px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(140deg, var(--brand), #6ea49f);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5);
+    }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      position: relative;
+    }
+
+    .nav a:hover { color: var(--ink); }
+
+    .online {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #00b36b;
+      box-shadow: 0 0 0 6px rgba(0, 179, 107, 0.12);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    .hero {
+      padding: 72px 0 34px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      border-radius: 999px;
+      border: 1px solid #d7cfbe;
+      padding: 8px 12px;
+      font-size: 12px;
+      background: #fffaf0;
+      color: #63583f;
+    }
+
+    h1 {
+      margin: 16px 0 16px;
+      font-family: "Newsreader", serif;
+      font-size: clamp(42px, 7vw, 86px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      max-width: 12ch;
+    }
+
+    .hero-sub {
+      max-width: 62ch;
+      color: var(--ink-soft);
+      font-size: 18px;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 11px 18px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(20,20,20,0.14);
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .btn-ghost {
+      background: #fff;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+
+    .hero-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 30px;
+      letter-spacing: -0.03em;
+    }
+
+    .stat span {
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+
+    .ticker-wrap {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #efece3;
+      overflow: hidden;
+      white-space: nowrap;
+      margin: 36px 0;
+    }
+
+    .ticker {
+      display: inline-block;
+      padding: 12px 0;
+      animation: marquee 22s linear infinite;
+      font-size: 14px;
+      color: #3f3a2f;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .section {
+      margin: 44px 0 72px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: -0.02em;
+    }
+
+    .section p {
+      margin: 6px 0 0;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1.3fr auto auto;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .input, .select {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font: inherit;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink-soft);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .chip.active {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 42px rgba(16,16,16,0.13);
+    }
+
+    .thumb {
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(145deg, #1f2637, #394359);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .body {
+      padding: 12px;
+    }
+
+    .badge {
+      display: inline-block;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 5px 8px;
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    .ok { background: #e3f6ef; color: var(--ok); }
+    .warn { background: #fff2e1; color: var(--warn); }
+
+    .title {
+      margin: 0 0 10px;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .price {
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .price small {
+      color: var(--ink-soft);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .cta {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .cta:hover { background: #f7f6f2; }
+
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .review {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .stars { letter-spacing: 0.16em; color: #bf7d00; font-size: 12px; }
+    .review p { margin: 10px 0; color: var(--ink-soft); font-size: 14px; }
+    .who { font-size: 12px; color: #5f5a4b; font-weight: 600; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0 40px;
+      color: #5f5a4b;
+      font-size: 12px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 420ms ease, transform 420ms ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid, .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .reviews { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 740px) {
+      .nav { display: none; }
+      .hero { padding-top: 44px; }
+      .hero-grid, .cards, .reviews { grid-template-columns: 1fr; }
+      .controls { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="#" class="logo">Cosmo<span>Cheats</span></a>
-        <ul class="nav-links">
-            <li><a href="#" onclick="showPage('home')">Overview</a></li>
-            <li><a href="#" onclick="showPage('store')">Store</a></li>
-            <li><a href="#" onclick="showPage('products')">Products</a></li>
-            <li><a href="#" onclick="showPage('reviews')">Reviews</a></li>
-            <li><a href="#">Status</a></li>
-            <li><a href="#">Support</a></li>
-        </ul>
-        <div class="nav-actions">
-            <div class="online-badge">
-                <span class="online-dot"></span>
-                <span id="onlineCount">342 Online</span>
-            </div>
+  <header class="topbar">
+    <div class="container topbar-row">
+      <a href="#" class="brand"><span class="brand-mark"></span>Cosmo Store</a>
+      <nav class="nav">
+        <a href="#catalog">Catalog</a>
+        <a href="#status">Status</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#support">Support</a>
+      </nav>
+      <div class="online"><span class="dot"></span><strong id="online">311</strong> online</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero reveal">
+      <span class="eyebrow">400,000+ successful transactions</span>
+      <h1>Designed like a product launch, built for conversion.</h1>
+      <p class="hero-sub">A full visual rebuild with cleaner hierarchy, premium motion, and fast catalog UX. Search, filter, and sort products instantly with responsive performance.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#catalog">Explore products</a>
+        <a class="btn btn-ghost" href="#status">View live status</a>
+      </div>
+
+      <div class="hero-grid">
+        <article class="stat reveal"><strong>67</strong><span>Game categories</span></article>
+        <article class="stat reveal"><strong>4,500+</strong><span>Verified reviews</span></article>
+        <article class="stat reveal"><strong>24/7</strong><span>Support response</span></article>
+        <article class="stat reveal"><strong>99.9%</strong><span>Uptime target</span></article>
+      </div>
+    </section>
+  </main>
+
+  <div class="ticker-wrap" id="status">
+    <div class="ticker">LIVE STATUS - RUST: OPERATIONAL - FORTNITE: OPERATIONAL - VALORANT: OPERATIONAL - HWID TOOLS: PARTIAL MAINTENANCE - SUPPORT ETA: UNDER 10 MINUTES - LIVE STATUS - RUST: OPERATIONAL - FORTNITE: OPERATIONAL - VALORANT: OPERATIONAL - HWID TOOLS: PARTIAL MAINTENANCE - SUPPORT ETA: UNDER 10 MINUTES - </div>
+  </div>
+
+  <section class="container section reveal" id="catalog">
+    <div class="section-head">
+      <div>
+        <h2>Catalog</h2>
+        <p>Includes Kane, Liquid, Astro, Vortex, Hero, Kraken, and more.</p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <input class="input" id="search" type="search" placeholder="Search products, e.g. Kane, Liquid, Astro...">
+      <select class="select" id="sort">
+        <option value="featured">Sort: Featured</option>
+        <option value="price-asc">Sort: Price low-high</option>
+        <option value="price-desc">Sort: Price high-low</option>
+        <option value="name">Sort: Name A-Z</option>
+      </select>
+      <button class="btn btn-ghost" id="reset" type="button">Reset filters</button>
+    </div>
+
+    <div class="chips" id="chips"></div>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <section class="container section reveal" id="reviews">
+    <div class="section-head">
+      <div>
+        <h2>Recent reviews</h2>
+        <p>Snapshot from active customer feedback.</p>
+      </div>
+    </div>
+
+    <div class="reviews" id="reviewGrid"></div>
+  </section>
+
+  <section class="container section reveal" id="support">
+    <div class="section-head">
+      <div>
+        <h2>Support center</h2>
+        <p>Fast triage for setup, key sync, and status checks.</p>
+      </div>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="body">
+          <p class="title">Live chat</p>
+          <p style="color: var(--ink-soft); margin: 0 0 10px; font-size: 14px;">Average first response: under 10 minutes.</p>
+          <button class="cta" type="button">Open support</button>
         </div>
-    </nav>
-
-    <main id="home" class="page active">
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Undetected Cheats<br>with 24/7 Support</h1>
-                <p class="tagline">300,000+ Successful Orders · 5/5 from 4,000+ Reviews</p>
-                <div style="display: flex; gap: 16px; justify-content: center;">
-                    <a href="#" onclick="showPage('store')" class="btn btn-primary">Browse Store</a>
-                    <a href="#" class="btn btn-secondary">View Status</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-value">300K+</div>
-                        <div class="stat-label">Successful Orders</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">4,500+</div>
-                        <div class="stat-label">5-Star Reviews</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">67</div>
-                        <div class="stat-label">Games Supported</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">24/7</div>
-                        <div class="stat-label">Live Support</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="container">
-            <div class="section">
-                <div class="section-header">
-                    <div>
-                        <h2 class="section-title">Supported Games</h2>
-                        <p class="section-subtitle">67 games with active cheats</p>
-                    </div>
-                </div>
-                <div class="games-grid" id="gamesGrid"></div>
-            </div>
+      </article>
+      <article class="card">
+        <div class="body">
+          <p class="title">Discord routing</p>
+          <p style="color: var(--ink-soft); margin: 0 0 10px; font-size: 14px;">Channel-based support for faster troubleshooting.</p>
+          <button class="cta" type="button">Join channel</button>
         </div>
-    </main>
+      </article>
+      <article class="card">
+        <div class="body">
+          <p class="title">Status checks</p>
+          <p style="color: var(--ink-soft); margin: 0 0 10px; font-size: 14px;">Verify maintenance windows before opening tickets.</p>
+          <button class="cta" type="button">View status</button>
+        </div>
+      </article>
+      <article class="card">
+        <div class="body">
+          <p class="title">Billing help</p>
+          <p style="color: var(--ink-soft); margin: 0 0 10px; font-size: 14px;">Order history, plan changes, and invoice requests.</p>
+          <button class="cta" type="button">Contact billing</button>
+        </div>
+      </article>
+    </div>
+  </section>
 
-    <main id="store" class="page">
-        <div class="container" style="padding-top: 100px;">
-            <div class="section">
-                <div class="section-header">
-                    <div>
-                        <h2 class="section-title">Store</h2>
-                        <p class="section-subtitle">67 supported games</p>
-                    </div>
-                </div>
-                <div class="tabs">
-                    <button class="tab active" onclick="filterProducts('rust')">Rust</button>
-                    <button class="tab" onclick="filterProducts('valorant')">Valorant</button>
-                    <button class="tab" onclick="filterProducts('fortnite')">Fortnite</button>
-                    <button class="tab" onclick="filterProducts('apex')">Apex Legends</button>
-                    <button class="tab" onclick="filterProducts('cod')">Call of Duty</button>
-                </div>
-                <div class="products-grid" id="storeProductsGrid"></div>
+  <footer>
+    <div class="container">Cosmo Store visual rebuild. Optimized for responsive layout, fast filtering, and modern UI presentation.</div>
+  </footer>
+
+  <script>
+    const products = [
+      { name: "Liquid Rust", game: "Rust", status: "Undetected", price: 6 },
+      { name: "Supreme Rust", game: "Rust", status: "Undetected", price: 8 },
+      { name: "Kane Rust", game: "Rust", status: "Undetected", price: 6 },
+      { name: "Cosmo Rust", game: "Rust", status: "Undetected", price: 18 },
+      { name: "Atlas Rust", game: "Rust", status: "Undetected", price: 6 },
+      { name: "Cobra Rust", game: "Rust", status: "Undetected", price: 13 },
+      { name: "Vortex Rust", game: "Rust", status: "Undetected", price: 7 },
+      { name: "Kraken Rust", game: "Rust", status: "Use at own risk", price: 12 },
+
+      { name: "Supreme Fortnite", game: "Fortnite", status: "Undetected", price: 9 },
+      { name: "Kane Fortnite", game: "Fortnite", status: "Undetected", price: 7 },
+      { name: "Liquid Fortnite", game: "Fortnite", status: "Undetected", price: 5 },
+      { name: "AstroZoom Fortnite", game: "Fortnite", status: "Undetected", price: 6 },
+      { name: "Vortex Fortnite", game: "Fortnite", status: "Undetected", price: 10 },
+      { name: "Kraken Fortnite", game: "Fortnite", status: "Updating", price: 12 },
+
+      { name: "Hero Valorant", game: "Valorant", status: "Undetected", price: 8 },
+      { name: "Vortex Valorant", game: "Valorant", status: "Undetected", price: 7 },
+
+      { name: "Liquid CS2", game: "CS2", status: "Undetected", price: 6 },
+      { name: "Vortex CS2", game: "CS2", status: "Undetected", price: 5 },
+      { name: "Supreme CS2", game: "CS2", status: "Undetected", price: 8 },
+
+      { name: "Liquid Apex", game: "Apex", status: "Undetected", price: 8 },
+      { name: "Vortex Apex", game: "Apex", status: "Undetected", price: 6 },
+
+      { name: "Pulse MW3", game: "Call of Duty", status: "Undetected", price: 35 },
+      { name: "AstroZoom COD", game: "Call of Duty", status: "Updating", price: 6 },
+      { name: "Liquid Warzone", game: "Call of Duty", status: "Undetected", price: 5 },
+      { name: "Vortex COD", game: "Call of Duty", status: "Undetected", price: 4 },
+
+      { name: "Kraken Spoofer", game: "HWID Spoofers", status: "Undetected", price: 4 },
+      { name: "Breeze Spoofer", game: "HWID Spoofers", status: "Undetected", price: 4 },
+      { name: "Liquid Spoofer", game: "HWID Spoofers", status: "Undetected", price: 4 },
+      { name: "Vex EAC Spoofer", game: "HWID Spoofers", status: "Updating", price: 10 }
+    ];
+
+    const reviews = [
+      { text: "Support fixed my issue in under 10 minutes.", who: "Vendo Nevera - 10h ago" },
+      { text: "Best support team, smooth setup and clear steps.", who: "8cp. - Monday" },
+      { text: "Reliable and stable, exactly what I needed.", who: "Noblog - Saturday" },
+      { text: "Fast response and issue solved first try.", who: "Mallone - Mar 30" },
+      { text: "Clean experience from checkout to delivery.", who: "Bresko - Mar 28" },
+      { text: "Great communication and no confusion.", who: "Customs - Mar 27" }
+    ];
+
+    const cards = document.getElementById("cards");
+    const chipsWrap = document.getElementById("chips");
+    const search = document.getElementById("search");
+    const sort = document.getElementById("sort");
+    const reset = document.getElementById("reset");
+
+    const categories = ["All", ...new Set(products.map((p) => p.game))];
+    let activeCategory = "All";
+
+    function money(v) {
+      return `$${v.toFixed(2)}`;
+    }
+
+    function renderChips() {
+      chipsWrap.innerHTML = categories.map((cat) => `
+        <button class="chip ${cat === activeCategory ? "active" : ""}" data-cat="${cat}">${cat}</button>
+      `).join("");
+
+      chipsWrap.querySelectorAll(".chip").forEach((chip) => {
+        chip.addEventListener("click", () => {
+          activeCategory = chip.dataset.cat;
+          renderChips();
+          renderCards();
+        });
+      });
+    }
+
+    function compare(a, b) {
+      if (sort.value === "price-asc") return a.price - b.price;
+      if (sort.value === "price-desc") return b.price - a.price;
+      if (sort.value === "name") return a.name.localeCompare(b.name);
+      return 0;
+    }
+
+    function renderCards() {
+      const query = search.value.trim().toLowerCase();
+      const filtered = products
+        .filter((p) => activeCategory === "All" || p.game === activeCategory)
+        .filter((p) => `${p.name} ${p.game} ${p.status}`.toLowerCase().includes(query))
+        .sort(compare);
+
+      if (!filtered.length) {
+        cards.innerHTML = `<article class="card"><div class="body"><p class="title">No matching products</p><p style="color: var(--ink-soft); margin: 0;">Try removing filters or searching with another term.</p></div></article>`;
+        return;
+      }
+
+      cards.innerHTML = filtered.map((p) => `
+        <article class="card reveal">
+          <div class="thumb">${p.game}</div>
+          <div class="body">
+            <span class="badge ${p.status === "Undetected" ? "ok" : "warn"}">${p.status.toUpperCase()}</span>
+            <h3 class="title">${p.name}</h3>
+            <div class="meta">
+              <div class="price">${money(p.price)} <small>USD</small></div>
+              <button class="cta" type="button">Buy now</button>
             </div>
-        </div>
-    </main>
+          </div>
+        </article>
+      `).join("");
 
-    <main id="products" class="page">
-        <div class="container" style="padding-top: 100px;">
-            <div class="section">
-                <div class="section-header">
-                    <div>
-                        <h2 class="section-title">Products</h2>
-                        <p class="section-subtitle">Premium cheats for popular games</p>
-                    </div>
-                </div>
-                <div class="tabs">
-                    <button class="tab active" onclick="filterProducts('rust')">Rust</button>
-                    <button class="tab" onclick="filterProducts('valorant')">Valorant</button>
-                    <button class="tab" onclick="filterProducts('fortnite')">Fortnite</button>
-                    <button class="tab" onclick="filterProducts('apex')">Apex Legends</button>
-                    <button class="tab" onclick="filterProducts('cod')">Call of Duty</button>
-                </div>
-                <div class="products-grid" id="productsGrid"></div>
-            </div>
-        </div>
-    </main>
+      observeReveals();
+    }
 
-    <main id="reviews" class="page">
-        <div class="container" style="padding-top: 100px;">
-            <div class="section">
-                <div class="section-header">
-                    <div>
-                        <h2 class="section-title">Customer Reviews</h2>
-                        <p class="section-subtitle">What our customers say</p>
-                    </div>
-                </div>
-                <div class="reviews-grid" id="reviewsGrid"></div>
-            </div>
-        </div>
-    </main>
+    function renderReviews() {
+      const grid = document.getElementById("reviewGrid");
+      grid.innerHTML = reviews.map((r) => `
+        <article class="review reveal">
+          <div class="stars">★★★★★</div>
+          <p>${r.text}</p>
+          <div class="who">${r.who}</div>
+        </article>
+      `).join("");
+    }
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">Cosmo<span>Cheats</span></div>
-            <p class="footer-text">© 2026 Cosmo Software. Demo for portfolio purposes.</p>
-        </div>
-    </footer>
+    function observeReveals() {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
 
-    <script>
-        const games = [
-            { name: 'Rust', image: 'https://cosmocheats.com/uploads/monthly_2025_10/rust.webp' },
-            { name: 'Fortnite', image: 'https://cosmocheats.com/uploads/monthly_2025_10/forntitenew.webp' },
-            { name: 'Valorant', image: 'https://cosmocheats.com/uploads/monthly_2025/Valorantnew.webp' },
-            { name: 'Counter-Strike 2', image: 'https://cosmocheats.com/uploads/monthly_2025_10/CounterStrike2.webp' },
-            { name: 'Apex Legends', image: 'https://cosmocheats.com/uploads/monthly_2025_10/Apex.webp' },
-            { name: 'Call of Duty', image: 'https://cosmocheats.com/uploads/monthly_2025_10/CallofDuty3.webp' },
-            { name: 'Escape From Tarkov', image: 'https://cosmocheats.com/uploads/monthly_2025_10/ETF.webp' },
-            { name: 'Rainbow Six Siege', image: 'https://cosmocheats.com/uploads/monthly_2025_10/RainbowSixSiege.webp' },
-            { name: 'PUBG', image: 'https://cosmocheats.com/uploads/monthly_2025_10/PUBG.webp' },
-            { name: 'DayZ', image: 'https://cosmocheats.com/uploads/monthly_2025_10/DayZ.webp' },
-            { name: 'Dead by Daylight', image: 'https://cosmocheats.com/uploads/monthly_2025_10/DeadbyDaylight.webp' },
-            { name: 'War Thunder', image: 'https://cosmocheats.com/uploads/monthly_2025_10/war_thunder.webp' },
-            { name: 'The Finals', image: 'https://cosmocheats.com/uploads/monthly_2025_10/TheFinals.webp' },
-            { name: 'Delta Force', image: 'https://cosmocheats.com/uploads/monthly_2025_10/DeltaForce.webp' },
-            { name: 'Marvel Rivals', image: 'https://cosmocheats.com/uploads/monthly_2025_10/marvelrivalgameimage.webp' },
-            { name: 'Rocket League', image: 'https://cosmocheats.com/uploads/monthly_2025_10/RocketLeague6.webp' },
-            { name: 'FiveM', image: 'https://cosmocheats.com/uploads/monthly_2025_02/FIVEM.webp' },
-            { name: 'Roblox', image: 'https://cosmocheats.com/uploads/monthly_2025_10/Roblox.webp' },
-        ];
+      document.querySelectorAll(".reveal:not(.in)").forEach((el) => io.observe(el));
+    }
 
-        const products = [
-            { name: 'Liquid Rust', game: 'rust', status: 'undetected', price: 6.00, image: 'https://cosmocheats.com/uploads/monthly_2025_11/Liquid.webp' },
-            { name: 'Supreme Rust', game: 'rust', status: 'undetected', price: 8.00, image: 'https://cosmocheats.com/uploads/monthly_2025_10/Supreme.webp' },
-            { name: 'Kane Rust', game: 'rust', status: 'undetected', price: 6.00, image: 'https://cosmocheats.com/uploads/monthly_2025_10/Kane.webp' },
-            { name: 'Cosmo Rust', game: 'rust', status: 'undetected', price: 18.00, image: 'https://cosmocheats.com/uploads/monthly_2025_11/Cosmo.webp' },
-            { name: 'ATLAS Rust', game: 'rust', status: 'undetected', price: 6.00, image: 'https://cosmocheats.com/uploads/monthly_2025_10/Atlas.webp' },
-            { name: 'Cobra Rust', game: 'rust', status: 'undetected', price: 13.00, image: 'https://cosmocheats.com/uploads/monthly_2025_10/Cobra.webp' },
-            { name: 'Volt Rust Full', game: 'rust', status: 'undetected', price: 8.00, image: 'https://cosmocheats.com/uploads/monthly_2025_10/VoltFull.webp' },
-            { name: 'Viper Rust', game: 'rust', status: 'updating', price: 5.00, image: 'https://cosmocheats.com/uploads/monthly_2026_01/Viper.png' },
-        ];
+    search.addEventListener("input", renderCards);
+    sort.addEventListener("change", renderCards);
+    reset.addEventListener("click", () => {
+      search.value = "";
+      sort.value = "featured";
+      activeCategory = "All";
+      renderChips();
+      renderCards();
+    });
 
-        const reviews = [
-            { user: 'Vendo Nevera', date: '10 hours ago', content: 'Support fixed my issue in less than 10 mins. Great service!', stars: '★★★★★' },
-            { user: '8cp.', date: 'Monday', content: 'Best supporters out there, they helped a lot with my problem.', stars: '★★★★★' },
-            { user: 'Noblog', date: 'Saturday', content: 'Reliable and undetected cheats, I\'m highly impressed with the quality.', stars: '★★★★★' },
-            { user: 'WillyPushinP', date: 'Friday', content: 'Support is an absolute beast. 10/10 would recommend!', stars: '★★★★★' },
-            { user: 'Neusence', date: 'April 1', content: '5/5 Spoofer works flawlessly with claner. Totally worth it.', stars: '★★★★★' },
-            { user: 'Mallone', date: 'March 30', content: 'They fixed my problem in less than 5 minutes. Amazing speed!', stars: '★★★★★' },
-        ];
+    setInterval(() => {
+      const online = document.getElementById("online");
+      online.textContent = String(305 + Math.floor(Math.random() * 16));
+    }, 5000);
 
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function renderGames() {
-            const grid = document.getElementById('gamesGrid');
-            grid.innerHTML = games.map(game => `
-                <div class="game-card">
-                    <img src="${game.image}" alt="${game.name}" onerror="this.src='https://via.placeholder.com/64?text=${game.name.substring(0,2)}'">
-                    <h3>${game.name}</h3>
-                </div>
-            `).join('');
-        }
-
-        function renderProducts(gridId, filter = 'rust') {
-            const grid = document.getElementById(gridId);
-            const filtered = products.filter(p => p.game === filter);
-            grid.innerHTML = filtered.map(product => `
-                <div class="product-card">
-                    <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='https://via.placeholder.com/300x160?text=${product.name}'">
-                    <span class="product-status ${product.status}">● ${product.status}</span>
-                    <h3 class="product-title">${product.name}</h3>
-                    <div class="product-price">
-                        <span class="price-value">$${product.price.toFixed(2)}</span>
-                        <span class="price-currency">USD</span>
-                    </div>
-                    <button class="product-btn">Buy Now</button>
-                </div>
-            `).join('');
-        }
-
-        function renderReviews() {
-            const grid = document.getElementById('reviewsGrid');
-            grid.innerHTML = reviews.map(review => `
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">${review.user.charAt(0)}</div>
-                        <div class="review-meta">
-                            <div class="review-user">${review.user}</div>
-                            <div class="review-date">${review.date}</div>
-                        </div>
-                    </div>
-                    <div class="review-stars">${review.stars}</div>
-                    <p class="review-text">${review.content}</p>
-                </div>
-            `).join('');
-        }
-
-        function filterProducts(game) {
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
-            renderProducts('productsGrid', game);
-            renderProducts('storeProductsGrid', game);
-            showPage('store');
-        }
-
-        // Initialize
-        renderGames();
-        renderProducts('productsGrid', 'rust');
-        renderProducts('storeProductsGrid', 'rust');
-        renderReviews();
-    </script>
+    renderChips();
+    renderCards();
+    renderReviews();
+    observeReveals();
+  </script>
 </body>
 </html>
