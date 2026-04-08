@@ -31,12 +31,21 @@
 
   function productDescription(product) {
     if (product.description) return product.description;
-    return "Fast setup flow, frequent maintenance updates, and responsive support coverage.";
+    return (
+      product.name +
+      " for " +
+      product.game +
+      ". Performance-tuned profile with guided setup, validation checks, and responsive support coverage."
+    );
   }
 
   function productFeatures(product) {
     if (Array.isArray(product.features) && product.features.length) return product.features;
-    return ["Instant delivery", "Live status sync", "Priority support"];
+    return ["Instant delivery", "Version-safe setup", "Priority support"];
+  }
+
+  function productUpdated(product) {
+    return product.updated || "Updated daily";
   }
 
   function renderCategoryChips(targetId, onChange) {
@@ -122,9 +131,14 @@
             "<h3>" + p.name + "</h3>" +
             '<p class="product-desc">' + productDescription(p) + "</p>" +
             '<div class="product-features">' + features + "</div>" +
+            '<div class="product-meta-row"><span class="meta-label">Last update</span><span class="meta-value">' + productUpdated(p) + "</span></div>" +
             '<div class="meta">' +
             '<div class="price">' + money(p.price) + ' <small>USD</small></div>' +
             '<div class="pill">' + p.game + "</div>" +
+            "</div>" +
+            '<div class="product-actions">' +
+            '<button class="action-btn action-ghost" type="button">View details</button>' +
+            '<button class="action-btn action-primary" type="button">Buy now</button>' +
             "</div>" +
             "</div>" +
             "</article>"

@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/site.css?v=cosmic-v2">
+  <link rel="stylesheet" href="../assets/site.css?v=cosmic-v4">
 </head>
 <body>
   <header><div class="container top"><a class="brand" href="/cosmo-clone/">Cosmo Rebuild</a><nav class="nav"><a href="/cosmo-clone/store/">Store</a><a href="/cosmo-clone/status/">Status</a><a href="/cosmo-clone/supportsys/">Support</a><a href="/cosmo-clone/forums/">Forums</a><a href="/cosmo-clone/discover/">Discover</a></nav><div class="pill">Store hub</div></div></header>
@@ -16,6 +16,23 @@
       <span class="eyebrow">Premium catalog workspace</span>
       <h1>High-detail product browsing with live feed sync.</h1>
       <p>Animated banners, richer card detail, and instant category filtering. Data refreshes automatically from your live JSON feed.</p>
+      <div class="feature-rail">
+        <article class="feature-card">
+          <p class="feature-kicker">Visual Quality</p>
+          <h3>Layered cosmic depth</h3>
+          <p>Glow fields, glass surfaces, and motion-driven atmosphere.</p>
+        </article>
+        <article class="feature-card">
+          <p class="feature-kicker">Catalog Intelligence</p>
+          <h3>Search + sort + category filters</h3>
+          <p>Fast product discovery with always-on live data refresh.</p>
+        </article>
+        <article class="feature-card">
+          <p class="feature-kicker">Detail Rich</p>
+          <h3>Banners, features, update tags</h3>
+          <p>Each product card includes status, description, and action flow.</p>
+        </article>
+      </div>
     </section>
 
     <section class="section">
@@ -38,10 +55,10 @@
       <div class="grid" id="productGrid"></div>
     </section>
   </main>
-  <footer><div class="container">Rendered from shared data files for easy updates. Visual build: cosmic-v2.</div></footer>
+  <footer><div class="container">Rendered from shared data files for easy updates. Visual build: cosmic-v4.</div></footer>
 
-  <script src="../assets/data.js?v=cosmic-v2"></script>
-  <script src="../assets/app.js?v=cosmic-v2"></script>
+  <script src="../assets/data.js?v=cosmic-v4"></script>
+  <script src="../assets/app.js?v=cosmic-v4"></script>
   <script>
     function renderCatalog() {
       App.renderProductsGrid("productGrid", {

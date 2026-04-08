@@ -69,24 +69,28 @@
     "RAGEMP ALT:V"
   ],
   "products": [
-    { "name": "Liquid Rust", "game": "Rust", "status": "Operational", "price": 6 },
-    { "name": "Supreme Rust", "game": "Rust", "status": "Operational", "price": 8 },
-    { "name": "Kane Rust", "game": "Rust", "status": "Operational", "price": 6 },
-    { "name": "Vortex Rust", "game": "Rust", "status": "Operational", "price": 7 },
-    { "name": "Kraken Rust", "game": "Rust", "status": "Maintenance", "price": 12 },
-    { "name": "Supreme Fortnite", "game": "Fortnite", "status": "Operational", "price": 9 },
-    { "name": "Kane Fortnite", "game": "Fortnite", "status": "Operational", "price": 7 },
-    { "name": "Liquid Fortnite", "game": "Fortnite", "status": "Operational", "price": 5 },
-    { "name": "AstroZoom Fortnite", "game": "Fortnite", "status": "Operational", "price": 6 },
-    { "name": "Vortex Fortnite", "game": "Fortnite", "status": "Operational", "price": 10 },
-    { "name": "Hero Valorant", "game": "Valorant", "status": "Operational", "price": 8 },
-    { "name": "Vortex Valorant", "game": "Valorant", "status": "Operational", "price": 7 },
-    { "name": "Pulse MW3", "game": "Call of Duty", "status": "Operational", "price": 35 },
-    { "name": "AstroZoom COD", "game": "Call of Duty", "status": "Maintenance", "price": 6 },
-    { "name": "Liquid WZ", "game": "Call of Duty", "status": "Operational", "price": 5 },
-    { "name": "Kraken Spoofer", "game": "HWID Spoofers", "status": "Operational", "price": 4 },
-    { "name": "Breeze Spoofer", "game": "HWID Spoofers", "status": "Operational", "price": 4 },
-    { "name": "Vex EAC Spoofer", "game": "HWID Spoofers", "status": "Maintenance", "price": 10 }
+    { "name": "Liquid Rust", "game": "Rust", "status": "Operational", "price": 6, "updated": "Today, 09:40", "description": "Balanced profile focused on smooth visual performance and low setup friction.", "features": ["Config presets", "Fast onboarding", "Priority ticket"] },
+    { "name": "Supreme Rust", "game": "Rust", "status": "Operational", "price": 8, "updated": "Today, 08:12", "description": "Premium Rust package with advanced profile controls and quick reset workflow.", "features": ["Extended controls", "Version-safe profile", "24/7 support"] },
+    { "name": "Kane Rust", "game": "Rust", "status": "Operational", "price": 6, "updated": "Today, 11:05", "description": "Stable daily-driver option designed for consistency across updates.", "features": ["Stable branch", "Low-latency profile", "Guided setup"] },
+    { "name": "Vortex Rust", "game": "Rust", "status": "Operational", "price": 7, "updated": "Yesterday", "description": "Aggressive profile tuning with quick switch presets.", "features": ["Preset switching", "Fast patch cycle", "Help desk"] },
+    { "name": "Kraken Rust", "game": "Rust", "status": "Maintenance", "price": 12, "updated": "In maintenance", "description": "High-end package currently under active maintenance for quality checks.", "features": ["Advanced tuning", "Patch testing", "Maintenance alerts"] },
+
+    { "name": "Supreme Fortnite", "game": "Fortnite", "status": "Operational", "price": 9, "updated": "Today, 10:30", "description": "Premium Fortnite profile with responsive settings and clean UX presets.", "features": ["Quick config", "Performance mode", "Priority support"] },
+    { "name": "Kane Fortnite", "game": "Fortnite", "status": "Operational", "price": 7, "updated": "Today, 07:58", "description": "Reliable mid-tier option tuned for stable sessions.", "features": ["Session stability", "Fast setup", "Live status"] },
+    { "name": "Liquid Fortnite", "game": "Fortnite", "status": "Operational", "price": 5, "updated": "Today, 12:20", "description": "Entry profile with easy onboarding and clean defaults.", "features": ["Beginner friendly", "One-click presets", "Ticket support"] },
+    { "name": "AstroZoom Fortnite", "game": "Fortnite", "status": "Operational", "price": 6, "updated": "Yesterday", "description": "Responsive profile calibrated for smooth visual flow and fast actions.", "features": ["Visual smoothing", "Action presets", "Rapid updates"] },
+    { "name": "Vortex Fortnite", "game": "Fortnite", "status": "Operational", "price": 10, "updated": "Today, 09:10", "description": "High-detail Fortnite package with stronger customization depth.", "features": ["Advanced controls", "Custom profiles", "VIP queue"] },
+
+    { "name": "Hero Valorant", "game": "Valorant", "status": "Operational", "price": 8, "updated": "Today, 08:48", "description": "Valorant package with consistent profile behavior and clean structure.", "features": ["Consistent profile", "Patch-safe", "Fast response"] },
+    { "name": "Vortex Valorant", "game": "Valorant", "status": "Operational", "price": 7, "updated": "Yesterday", "description": "Flexible profile tuned for quick adaptation and steady performance.", "features": ["Flexible presets", "Steady output", "Support queue"] },
+
+    { "name": "Pulse MW3", "game": "Call of Duty", "status": "Operational", "price": 35, "updated": "Today, 06:40", "description": "Top-tier COD package with expanded controls and premium tuning.", "features": ["Elite tier", "Extensive settings", "Priority handling"] },
+    { "name": "AstroZoom COD", "game": "Call of Duty", "status": "Maintenance", "price": 6, "updated": "In maintenance", "description": "COD package currently receiving quality and compatibility updates.", "features": ["Compatibility pass", "Hotfix queue", "Maintenance alerts"] },
+    { "name": "Liquid WZ", "game": "Call of Duty", "status": "Operational", "price": 5, "updated": "Today, 11:34", "description": "Lean Warzone profile with quick setup and responsive controls.", "features": ["Lean footprint", "Quick start", "Live telemetry"] },
+
+    { "name": "Kraken Spoofer", "game": "HWID Spoofers", "status": "Operational", "price": 4, "updated": "Today, 05:55", "description": "Utility package with stable profile handling and reset guidance.", "features": ["Utility dashboard", "Safe reset flow", "Realtime status"] },
+    { "name": "Breeze Spoofer", "game": "HWID Spoofers", "status": "Operational", "price": 4, "updated": "Yesterday", "description": "Lightweight utility option with straightforward setup path.", "features": ["Lightweight core", "Clean install", "Live support"] },
+    { "name": "Vex EAC Spoofer", "game": "HWID Spoofers", "status": "Maintenance", "price": 10, "updated": "In maintenance", "description": "Advanced utility currently in scheduled maintenance and testing.", "features": ["Advanced module", "Scheduled patching", "Maintenance feed"] }
   ],
   "reviews": [
     { "user": "Vendo Nevera", "date": "10 hours ago", "text": "Support fixed my issue in less than 10 mins." },
