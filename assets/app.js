@@ -4,6 +4,7 @@
   let motionBound = false;
   let splashShown = false;
   let popupShown = false;
+  let navReady = false;
 
   function el(id) {
     return document.getElementById(id);
@@ -285,8 +286,140 @@
     ensureSpaceScene();
     showOpeningSplash();
     enableFloatingPopup();
+    enhanceNavigation();
     refreshVisuals();
     enableMotion();
+  }
+
+  function enhanceNavigation() {
+    if (navReady) return;
+    navReady = true;
+
+    const header = document.querySelector("header");
+    const top = document.querySelector(".top");
+    const nav = document.querySelector(".nav");
+    if (!header || !top || !nav) return;
+
+    const links = Array.prototype.slice.call(nav.querySelectorAll("a"));
+    if (!links.length) return;
+
+    let indicator = nav.querySelector(".nav-indicator");
+    if (!indicator) {
+      indicator = document.createElement("span");
+      indicator.className = "nav-indicator";
+      nav.appendChild(indicator);
+    }
+
+    function normalize(path) {
+      return String(path || "").replace(/\/+$/, "") || "/";
+    }
+
+    function getActiveLink() {
+      const current = normalize(window.location.pathname);
+      let candidate = links[0];
+      let longest = 0;
+
+      links.forEach(function (link) {
+        const href = normalize(new URL(link.href, window.location.origin).pathname);
+        if (href === "/" || href === "/cosmo-clone") return;
+        if (current.indexOf(href) === 0 && href.length > longest) {
+          longest = href.length;
+          candidate = link;
+        }
+      });
+
+      return candidate;
+    }
+
+    function moveIndicator(target) {
+      if (!target) return;
+      const navRect = nav.getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+      indicator.style.width = targetRect.width + "px";
+      indicator.style.transform = "translateX(" + (targetRect.left - navRect.left) + "px)";
+      indicator.style.opacity = "1";
+    }
+
+    const active = getActiveLink();
+    links.forEach(function (link) {
+      link.classList.toggle("active-link", link === active);
+      link.addEventListener("mouseenter", function () {
+        moveIndicator(link);
+      });
+      link.addEventListener("focus", function () {
+        moveIndicator(link);
+      });
+    });
+
+    nav.addEventListener("mouseleave", function () {
+      moveIndicator(getActiveLink());
+    });
+
+    window.addEventListener("resize", function () {
+      moveIndicator(getActiveLink());
+    });
+
+    moveIndicator(active);
+
+    function onScroll() {
+      if (window.scrollY > 12) {
+        header.classList.add("is-scrolled");
+      } else {
+        header.classList.remove("is-scrolled");
+      }
+    }
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    if (!top.querySelector(".menu-toggle")) {
+      const toggle = document.createElement("button");
+      toggle.className = "menu-toggle";
+      toggle.type = "button";
+      toggle.setAttribute("aria-label", "Open menu");
+      toggle.innerHTML = '<span></span><span></span><span></span>';
+      top.insertBefore(toggle, nav);
+
+      const drawer = document.createElement("div");
+      drawer.className = "mobile-drawer";
+      drawer.innerHTML =
+        '<div class="mobile-drawer-panel">' +
+        '<button class="mobile-close" type="button" aria-label="Close menu">×</button>' +
+        '<nav class="mobile-nav"></nav>' +
+        "</div>";
+
+      const mobileNav = drawer.querySelector(".mobile-nav");
+      links.forEach(function (link) {
+        const a = document.createElement("a");
+        a.href = link.href;
+        a.textContent = link.textContent;
+        if (link.classList.contains("active-link")) a.classList.add("active-link");
+        mobileNav.appendChild(a);
+      });
+
+      document.body.appendChild(drawer);
+
+      function openDrawer() {
+        document.body.classList.add("drawer-open");
+        drawer.classList.add("open");
+      }
+
+      function closeDrawer() {
+        document.body.classList.remove("drawer-open");
+        drawer.classList.remove("open");
+      }
+
+      toggle.addEventListener("click", openDrawer);
+      drawer.addEventListener("click", function (e) {
+        if (e.target === drawer) closeDrawer();
+      });
+
+      const closeBtn = drawer.querySelector(".mobile-close");
+      if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+      mobileNav.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", closeDrawer);
+      });
+    }
   }
 
   function ensureSpaceScene() {
