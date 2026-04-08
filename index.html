@@ -26,31 +26,46 @@
 
   <main class="container">
     <section class="hero">
-      <h1>Full-site rebuild from link tree architecture.</h1>
-      <p>This version mirrors the information architecture you requested: homepage, store, categories, status, support, forums, discover flows, auth pages, and profile path structure.</p>
-      <div class="row">
-        <article class="stat"><strong>67</strong><span>Category links mapped</span></article>
-        <article class="stat"><strong>12</strong><span>Main pages scaffolded</span></article>
-        <article class="stat"><strong>24/7</strong><span>Support page included</span></article>
-        <article class="stat"><strong>Fast</strong><span>Static GitHub deploy</span></article>
+      <span class="eyebrow">Multi-page premium storefront</span>
+      <h1>Modern web experience with full catalog depth.</h1>
+      <p>Original rebuild with complete category mapping, product catalog, support flow, and status pages. This version keeps structure and scale while using neutral product language.</p>
+      <div class="btn-row">
+        <a class="btn primary" href="/store/">Open catalog</a>
+        <a class="btn ghost" href="/status/">View status</a>
       </div>
+      <div class="row">
+        <article class="stat"><strong>67</strong><span>Games in categories</span></article>
+        <article class="stat"><strong>40+</strong><span>Products in dataset</span></article>
+        <article class="stat"><strong>24/7</strong><span>Support coverage</span></article>
+        <article class="stat"><strong>Fast</strong><span>GitHub Pages optimized</span></article>
+      </div>
+    </section>
+  </main>
+
+  <div class="ticker"><span>LIVE STATUS - RUST OPERATIONAL - FORTNITE OPERATIONAL - VALORANT OPERATIONAL - HWID TOOLING MAINTENANCE - SUPPORT ETA UNDER 10 MINUTES - LIVE STATUS - RUST OPERATIONAL - FORTNITE OPERATIONAL - VALORANT OPERATIONAL - HWID TOOLING MAINTENANCE - SUPPORT ETA UNDER 10 MINUTES - </span></div>
+
+  <main class="container">
+    <section class="section">
+      <h2>All category coverage</h2>
+      <p>Complete games list from your link tree, rendered from shared data.</p>
+      <div class="grid" id="categoryGrid"></div>
     </section>
 
     <section class="section">
-      <h2>Primary routes</h2>
-      <div class="grid">
-        <a class="card" href="/store/"><h3>Store</h3><p>Category hub + featured products.</p></a>
-        <a class="card" href="/status/"><h3>Status</h3><p>Service health board and uptime table.</p></a>
-        <a class="card" href="/supportsys/"><h3>Support</h3><p>Ticket options and contact paths.</p></a>
-        <a class="card" href="/forums/"><h3>Forums</h3><p>Discussion categories and review area.</p></a>
-        <a class="card" href="/discover/"><h3>Discover</h3><p>Feed and unread stream paths.</p></a>
-        <a class="card" href="/profile/131531-yuri-poli/"><h3>Profile</h3><p>Dynamic profile URL pattern example.</p></a>
-      </div>
+      <h2>Recent feedback</h2>
+      <p>Sample review feed from shared dataset.</p>
+      <div class="grid" id="reviewGrid"></div>
     </section>
   </main>
 
   <footer>
     <div class="container">Built for GitHub Pages deployment with multi-page structure.</div>
   </footer>
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+  <script>
+    App.renderCategoryGrid("categoryGrid");
+    App.renderReviews("reviewGrid");
+  </script>
 </body>
 </html>

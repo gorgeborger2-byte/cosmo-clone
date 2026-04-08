@@ -13,18 +13,35 @@
   <header><div class="container top"><a class="brand" href="/">Cosmo Rebuild</a><nav class="nav"><a href="/store/">Store</a><a href="/status/">Status</a><a href="/supportsys/">Support</a><a href="/forums/">Forums</a><a href="/discover/">Discover</a></nav><div class="pill">Store hub</div></div></header>
   <main class="container">
     <section class="section">
-      <h2>Store categories</h2>
-      <p>Mapped from your provided link tree.</p>
-      <div class="grid">
-        <a class="card" href="/store/category/1-rust/"><h3>Rust</h3><p>/store/category/1-rust/</p></a>
-        <a class="card" href="/store/category/23-fortnite/"><h3>Fortnite</h3><p>/store/category/23-fortnite/</p></a>
-        <a class="card" href="/store/category/8-valorant/"><h3>Valorant</h3><p>/store/category/8-valorant/</p></a>
-        <a class="card" href="/store/category/86-call-of-duty/"><h3>Call of Duty</h3><p>/store/category/86-call-of-duty/</p></a>
-        <a class="card" href="/store/category/5-hwid-spoofers/"><h3>HWID Spoofers</h3><p>/store/category/5-hwid-spoofers/</p></a>
-        <a class="card" href="/store/category/121-counter-strike-2/"><h3>Counter-Strike 2</h3><p>/store/category/121-counter-strike-2/</p></a>
+      <h2>Catalog</h2>
+      <p>All products and games in one searchable view.</p>
+
+      <div class="controls">
+        <input id="search" type="search" placeholder="Search product or game (Kane, Liquid, AstroZoom...)">
+        <select id="sort">
+          <option value="featured">Sort: Featured</option>
+          <option value="price-asc">Sort: Price low-high</option>
+          <option value="price-desc">Sort: Price high-low</option>
+          <option value="name">Sort: Name A-Z</option>
+        </select>
+        <button class="btn ghost" id="reset" type="button">Reset</button>
       </div>
+
+      <div class="chips" id="chips"></div>
+      <div class="grid" id="productGrid"></div>
     </section>
   </main>
-  <footer><div class="container">Category paths can be expanded to all 67 in same format.</div></footer>
+  <footer><div class="container">Rendered from shared data files for easy updates.</div></footer>
+
+  <script src="../assets/data.js"></script>
+  <script src="../assets/app.js"></script>
+  <script>
+    App.renderProductsGrid("productGrid", {
+      chipsId: "chips",
+      searchId: "search",
+      sortId: "sort",
+      resetId: "reset"
+    });
+  </script>
 </body>
 </html>
