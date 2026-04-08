@@ -1,5 +1,7 @@
 (function () {
   const LIVE_URL = "/cosmo-clone/assets/live-data.json";
+  let revealObserver;
+  let motionBound = false;
 
   function el(id) {
     return document.getElementById(id);
@@ -70,6 +72,7 @@
 
       if (!data.length) {
         target.innerHTML = '<article class="card"><h3>No results</h3><p>Try a different search or category.</p></article>';
+        refreshVisuals();
         return;
       }
 
@@ -87,6 +90,8 @@
           );
         })
         .join("");
+
+      refreshVisuals();
     }
 
     renderCategoryChips(options.chipsId, function (c) {
@@ -127,6 +132,8 @@
         return '<article class="card"><h3>' + c + '</h3><p>Category available in catalog.</p></article>';
       })
       .join("");
+
+    refreshVisuals();
   }
 
   function renderReviews(targetId) {
@@ -137,6 +144,62 @@
         return '<article class="card"><span class="tag ok">★★★★★</span><h3>' + r.user + '</h3><p>' + r.text + ' - ' + r.date + '</p></article>';
       })
       .join("");
+
+    refreshVisuals();
+  }
+
+  function setupRevealObserver() {
+    if (revealObserver) return revealObserver;
+
+    revealObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.13 }
+    );
+
+    return revealObserver;
+  }
+
+  function refreshVisuals() {
+    const observer = setupRevealObserver();
+    document.querySelectorAll(".hero, .section, .card, .stat").forEach(function (node) {
+      if (!node.classList.contains("reveal")) {
+        node.classList.add("reveal");
+      }
+
+      if (!node.classList.contains("in")) {
+        observer.observe(node);
+      }
+    });
+  }
+
+  function enableMotion() {
+    if (motionBound) return;
+    motionBound = true;
+
+    window.addEventListener(
+      "pointermove",
+      function (event) {
+        const cx = window.innerWidth / 2;
+        const cy = window.innerHeight / 2;
+        const px = (event.clientX - cx) / cx;
+        const py = (event.clientY - cy) / cy;
+        document.documentElement.style.setProperty("--px", String(px.toFixed(3)));
+        document.documentElement.style.setProperty("--py", String(py.toFixed(3)));
+      },
+      { passive: true }
+    );
+  }
+
+  function initVisuals() {
+    refreshVisuals();
+    enableMotion();
   }
 
   async function loadLiveData() {
@@ -175,6 +238,8 @@
     renderProductsGrid: renderProductsGrid,
     renderCategoryGrid: renderCategoryGrid,
     renderReviews: renderReviews,
-    enableLiveData: enableLiveData
+    enableLiveData: enableLiveData,
+    initVisuals: initVisuals,
+    refreshVisuals: refreshVisuals
   };
 })();
